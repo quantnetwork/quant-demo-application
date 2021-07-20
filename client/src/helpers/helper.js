@@ -123,3 +123,7 @@ export const timeStempMapper = (timestamp) => {
 export const capitalizeFirstLetter = (string) => (
   string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 );
+
+export const wrapTextInSpan = (messageClass, messageText) => `<span class="${messageClass}">${messageText}</span>`;
+
+export const wrapObjectInPre = (messageClass, messageObject) => `<pre class="${messageClass}">${JSON.stringify(messageObject, null, 2)}</pre>`;

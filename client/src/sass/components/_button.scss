@@ -127,3 +127,12 @@
     transform: translateY(-50%);
     color: $white !important;
 }
+.token-link {
+  font-size: $fontSizeRegular;
+  color: $orange;
+  position: absolute;
+  right: 0;
+  &:hover {
+    color: $orange;
+  }
+}

@@ -41,11 +41,11 @@ const actions = {
       }, timeout);
     });
   },
-  async createTransaction({ dispatch, commit }, params) {
+  createTransaction({ dispatch, commit }, params) {
     const toSaveParams = { ...params };
     const paramsToSend = { ...params };
     delete paramsToSend.auditType;
-    await dispatch('createTransactionAction', paramsToSend)
+    return dispatch('createTransactionAction', paramsToSend)
       .then(({ data }) => {
         commit(types.SET_TRANSACTION_FEE, data);
         commit(types.SAVE_CREATE_TRANSACTION_FORM, toSaveParams);
@@ -69,13 +69,13 @@ const actions = {
     delete paramsToSend.auditType;
     const params = await dispatch('prepareTransactionAction', { transactionId, body: paramsToSend });
     const { requestId } = params;
-    await dispatch('executeTransactionAction', requestId)
+    return dispatch('executeTransactionAction', requestId)
       .then(({ data }) => {
         commit(types.SAVE_TRANSACTION_FULL_DETAILS_DATA, data);
       }, () => Promise.reject());
   },
-  async subscribeTransaction({ dispatch, commit }, body) {
-    await dispatch('subscribeTransactionAction', body)
+  subscribeTransaction({ dispatch, commit }, body) {
+    return dispatch('subscribeTransactionAction', body)
       .then(({ data }) => {
         commit(types.SAVE_SUBSCRIBE_DATA, data);
       }, () => Promise.reject());
@@ -86,7 +86,7 @@ const actions = {
   removeApiOutputDataByKey({ commit }, key) {
     commit(types.REMOVE_API_CONSOLE_OUTPUT_DATA_PART, key);
   },
-  async signTransaction({ dispatch, commit }, params) {
+  signTransaction({ dispatch, commit }, params) {
     return dispatch('signTransactionAction', params)
       .then(({ data }) => {
         commit(types.SAVE_SIGNED_KEY, data);

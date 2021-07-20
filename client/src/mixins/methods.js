@@ -8,7 +8,6 @@ import {
   transactionFullDetailsMessages,
 } from '@/constants/consoleOutput/messages';
 import convertDate from '@/helpers/convertDate';
-import { wrapInTag } from '@/helpers/consoleOutput';
 import { capitalizeFirstLetter } from '@/helpers/helper';
 
 const transactionMethods = {
@@ -17,10 +16,7 @@ const transactionMethods = {
       const key = this.generateNewMessageOutputKey;
       this.setLoading('Preparing Transaction');
       this.setChangesState(false);
-      await this.logToConsole({
-        key,
-        message: 'De-ciphering signed API call...',
-      });
+      await this.printConsoleMessages(key, createTransactionMessages.firstMessages());
       this.createTransaction(form)
         .then(async () => {
           this.setStepAction(steps.TRANSACTION_FEE);
@@ -70,10 +66,7 @@ const transactionMethods = {
       const key = this.generateNewMessageOutputKey;
       if (this.transactionSucceededData.overledgerTransactionId) {
         this.setLoading('Retrieving Overledger Transaction Details');
-        await this.logToConsole({
-          key,
-          message: 'Searching Overledger for transaction...',
-        });
+        await this.printConsoleMessages(key, transactionDetailsMessages.firstMessages());
         this.getTransactionDetails(this.transactionSucceededData.overledgerTransactionId)
           .then(async () => {
             this.setStepAction(steps.TRANSACTION_DETAILS);
@@ -89,10 +82,7 @@ const transactionMethods = {
     async handleFullDetails() {
       const key = this.generateNewMessageOutputKey;
       this.setLoading('Retrieving Full Transaction Details');
-      await this.logToConsole({
-        key,
-        message: 'Searching Overledger for corresponding DLT Transaction ID...',
-      });
+      await this.printConsoleMessages(key, transactionFullDetailsMessages.firstMessages());
       this.getFullTransactionDetails(this.transactionSucceededData.transactionId)
         .then(async () => {
           this.setStepAction(steps.TRANSACTION_FULL_DETAILS);
@@ -107,7 +97,7 @@ const transactionMethods = {
     async generateCreateTransactionMessages(key) {
       await this.printConsoleMessages(
         key,
-        createTransactionMessages(this.mappedTransactionFeeData.unit),
+        createTransactionMessages.secondMessages(this.mappedTransactionFeeData.unit),
       );
     },
     async generateAcceptTransactionMessages(key) {
@@ -125,14 +115,11 @@ const transactionMethods = {
       };
       await this.printConsoleMessages(
         key,
-        acceptTransactionMessages(transactionData),
+        acceptTransactionMessages.secondMessages(transactionData),
       );
     },
     async generateRetrieveTransactionDetailsMessages(key) {
-      await this.printConsoleMessages(
-        key,
-        transactionDetailsMessages(),
-      );
+      await this.printConsoleMessages(key, transactionDetailsMessages.secondMessages());
     },
     async generateRetrieveFullTransactionDetailsMessages(key) {
       const { overledgerTransactionId, dltTransactionId } = this.mappedTransactionDataForMessage;
@@ -142,22 +129,21 @@ const transactionMethods = {
       };
       await this.printConsoleMessages(
         key,
-        transactionFullDetailsMessages(transactionInformation),
+        transactionFullDetailsMessages.secondMessages(transactionInformation),
       );
     },
     async generateSubscribeToTransactionMessages(key) {
       const { overledgerTransactionId } = this.transactionSucceededData;
 
-      const statuses = this.subscribedData.map((data) => {
+      const statusInformation = {};
+      this.subscribedData.forEach((data) => {
         const { value, timestamp } = data.subscriptionDetails.status;
-        return `${capitalizeFirstLetter(value)}     ${convertDate(timestamp)}`;
+        statusInformation[capitalizeFirstLetter(value)] = convertDate(timestamp);
       });
-
-      const statusInformation = `{\n  ${statuses.join('\n')}\n}`;
 
       await this.printConsoleMessages(
         key,
-        subscribeToTransactionMessages(overledgerTransactionId, statusInformation),
+        subscribeToTransactionMessages.secondMessages(overledgerTransactionId, statusInformation),
       );
     },
     async printConsoleMessages(key, messageArray) {
@@ -165,17 +151,15 @@ const transactionMethods = {
       // eslint-disable-next-line no-restricted-syntax
       for (const createMessage of messageArray) {
         const {
-          timeout,
-          messageFirstPart,
-          messageSecondPart,
           message,
+          timeout,
         } = createMessage;
         // eslint-disable-next-line no-await-in-loop
-        await this.logToConsole(wrapInTag(key, timeout, {
+        await this.logToConsole({
+          key,
           message,
-          messageFirstPart,
-          messageSecondPart,
-        }));
+          timeout,
+        });
       }
     },
     redirectToCreateSubscription() {
@@ -193,11 +177,11 @@ const transactionMethods = {
         withDetails: false,
       };
       this.setLoading('Subscribing');
-      await this.logToConsole({
+      await this.printConsoleMessages(
         key,
-        message: `Sending tracking request to ${location.technology} Node`,
-      });
-      await this.subscribeTransaction(subscriptionParams)
+        subscribeToTransactionMessages.firstMessages(location.technology),
+      );
+      this.subscribeTransaction(subscriptionParams)
         .then(async () => {
           this.setStepAction(steps.SUBSCRIPTION_CREATED_SUCCESSFULLY);
           await this.generateSubscribeToTransactionMessages(key);
@@ -214,10 +198,7 @@ const transactionMethods = {
     async handleAcceptTransaction() {
       const key = this.generateNewMessageOutputKey;
       this.setLoading('Executing Transaction');
-      await this.logToConsole({
-        key,
-        message: 'Signing native DLT payload...',
-      });
+      await this.printConsoleMessages(key, acceptTransactionMessages.firstMessages());
       const signedKey = await this.signTransaction(this.transactionFee);
       if (!signedKey) {
         this.removeApiOutputDataByKey(key);
@@ -242,10 +223,7 @@ const transactionMethods = {
     async redirectToAuditPage(overledgerTransactionId) {
       const key = this.generateNewMessageOutputKey;
       this.setLoading('Starting Audit Transaction');
-      await this.logToConsole({
-        key,
-        message: 'Searching Overledger for transaction...',
-      });
+      await this.printConsoleMessages(key, transactionDetailsMessages.firstMessages());
       this.redirectToAuditWithConsoleOutput(overledgerTransactionId, key)
         .then(async () => {
           await this.finishOutputAfterTimeout();

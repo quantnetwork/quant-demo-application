@@ -23,6 +23,9 @@
             rules="required"
             tag="div"
           >
+            <b-link class="token-link">
+              <span> Generate Token </span>
+            </b-link>
             <b-form-group
               class="quant-form-group"
               label="OAuth Token:"
@@ -56,7 +59,7 @@
             class="button w-100 button-lg button-dark"
             @click="handleSubmit"
           >
-            Authorize
+            Next
           </b-button>
         </b-col>
       </b-row>
