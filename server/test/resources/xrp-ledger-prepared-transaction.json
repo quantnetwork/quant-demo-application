@@ -1,0 +1,27 @@
+{
+    "requestId": "370b4b09-15ac-4536-a337-1d0b91c3fa09",
+    "gatewayFee": {
+        "amount": "0",
+        "unit": "QNT"
+    },
+    "dltFee": {
+        "amount": "0.000012",
+        "unit": "XRP"
+    },
+    "nativeData": {
+        "TransactionType": "Payment",
+        "Account": "rhTa8RGotyJQAW8sS2tFVVfvcHYXaps9hC",
+        "Memos": [
+            {
+                "Memo": {
+                    "MemoData": "323520414B343753203639343230363636"
+                }
+            }
+        ],
+        "LastLedgerSequence": 2147483647,
+        "Sequence": 572,
+        "Destination": "rKoGTTkPefCuQR31UHsfk9jKnrQHz6LtKe",
+        "Fee": "12",
+        "Amount": "1000000"
+    }
+}

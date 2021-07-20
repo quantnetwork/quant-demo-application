@@ -1,0 +1,129 @@
+    .button {
+      @include btn();
+      max-width: 442px;
+      &-sm {
+        min-width:209px;
+      }
+
+      &-lg {
+        min-width: 442px;
+        max-height: 60px;
+      }
+
+      &-modal {
+        min-width: 144px;
+        max-height: 42px !important;
+        padding: 8px 16px;
+      &.button-dark {
+        background: $red !important;
+        color:$white !important;
+      }
+      }
+
+      &:disabled {
+        background:$lightgray;
+        cursor: auto;
+        color: $black;
+      }
+    }
+    .button-dark {
+      background: $orange;
+      &:hover {
+        background: $orange;
+        opacity: 0.8;
+      }
+      &:focus, &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled):active:focus {
+        background: $orange;
+        box-shadow: none;
+        border: none;
+      }
+    }
+
+    .button-light {
+      background: $white;
+      border: 1px solid $black;
+      color: $black;
+      max-height: 60px;
+      &:hover {
+        background:$graybg;
+        color: $black;
+      }
+      &:focus, &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled):active:focus {
+        background: $white;
+        box-shadow: none;
+        color: $black;
+      }
+    }
+
+.duplicate-btn {
+   text-decoration: none !important;
+   padding: 0;
+   margin-left: 5px;
+   &:focus {
+     box-shadow: none !important;
+   }
+}
+
+.button-view {
+  float: right;
+  color: $orange;
+  text-decoration: underline;
+  font-size: $fontSizeRegular;
+  font-weight: $fontweightbase;
+  &:focus {
+    box-shadow: none;
+  }
+  &:hover {
+    color: $orange;
+    opacity: 0.8;
+  }
+}
+
+.button-back {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  z-index: 0;
+  text-decoration: underline;
+  color: $orange;
+  min-width: 70px;
+  &:hover {
+    color: $orange;
+    background-color: transparent;
+    text-decoration: underline;
+    opacity: 0.8;
+    color: $orange;
+    &:after {
+      border-color: $orange;
+    }
+  }
+  &:focus, &:not(:disabled):not(.disabled):active:focus {
+    background-color: $white;
+    border: none;
+    box-shadow: none;
+    color: $orange;
+  }
+  span {
+    font-size: $fontSizeRegular;
+    font-weight: $fontweightbase;
+  }
+}
+
+.button-audit {
+  &:after {
+    display: none;
+  }
+    min-width: 45px;
+    max-width: 120px;
+    padding: 5px 16px !important;
+    max-height: 35px;
+    right: 17px;
+    margin: 0;
+    position: absolute !important;
+    top: 50% !important;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: $white !important;
+}

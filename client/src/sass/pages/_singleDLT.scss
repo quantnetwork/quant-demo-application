@@ -1,0 +1,156 @@
+.my-popover-class {
+    background: $black;
+    opacity: 0.8 !important;
+  }
+  .popover {
+    border: none;
+    .popover-body {
+      color: $white;
+      text-align: center;
+    }
+    .arrow {
+      left: 130px !important;
+       &:after {
+        position: relative;
+        right: 0;
+        top: -6px;
+        margin-top: 5px;
+        border-color: $black transparent transparent;
+        content: "";
+      }
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .dot {
+    height: 16px;
+    width: 16px;
+    @include border-radius(50%);
+    display: inline-block;
+    position: relative;
+    top: -8px;
+  }
+
+.status-wrapper {
+    position: relative;
+    left: -12px;
+  .status{
+    padding: 0;
+    &:nth-child(2) {
+      left: -12px;
+      &:after {
+        content: "";
+        position: relative;
+        border-bottom: 1px solid $lightgray;
+        display: block;
+        top: -22px;
+        z-index: 0;
+        right: -59px;
+        width: 28px;
+      }
+    }
+    &:last-child {
+      left: 0 !important;
+      &:after {
+        content: "";
+        border-bottom:none;
+      }
+    }
+    .status-border {
+      border-bottom: 1px solid $lightgray;
+      height: 80px;
+      position: relative;
+      left: 50%;
+      width: calc(100% - 3rem);
+    }
+    &:last-child {
+      .status-border {
+        width: 100%;
+        left: -50%;
+        .status-content {
+          position: relative;
+          left: 50%;
+        }
+      }
+      .status-content {
+        margin-right: 0 !important;
+      }
+    }
+    .status-content {
+      @include border-radius(2px);
+      padding: 10px 15px;
+      width: 145px;
+      margin-bottom: 10px;
+      position: relative;
+      left: -50%;
+    }
+    &-created {
+      .status-content {
+        border: 1px solid $black;
+        color: $black;
+        background: $white;
+      }
+      .dot {
+        border: 1px solid $black;
+        color: $black;
+        background: $white;
+      }
+    }
+    &-pending {
+      .status-content {
+        background: $orange;
+        color: $white;
+        border: 1px solid $orange;
+      }
+      .dot {
+        background: $orange;
+        border: 1px solid $orange;
+      }
+    }
+    &-successful-pr {
+      .status-content {
+        background: $graybg;
+        color: $black;
+        border:1px solid $graybg;
+      }
+      .dot {
+        background: $graybg;
+        border: 1px solid $graybg;
+      }
+    }
+    &-successful {
+      .status-content {
+        background: $green;
+        color: $white;
+        border: 1px solid $green;
+      }
+      .dot {
+        background: $green;
+        border: 1px solid $green;
+      }
+    }
+    &-failed {
+      .status-content {
+        background: $red;
+        color: $white;
+        border: 1px solid $red;
+      }
+      .dot {
+        background: $red;
+        border: 1px solid $red;
+      }
+    }
+    .status-text {
+      font-size: $fontSizeBase;
+      font-weight: $fontweightbase;
+      text-transform: capitalize;
+    }
+    .date-text {
+      font-weight:$fontweightsm;
+      font-size: $fontSizeMedium;
+    }
+  }
+
+}

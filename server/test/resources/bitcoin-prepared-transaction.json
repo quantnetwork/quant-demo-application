@@ -1,0 +1,28 @@
+{
+    "requestId": "2ae501f7-ddad-4182-afbb-7e2540154758",
+    "gatewayFee": {
+        "amount": "0",
+        "unit": "QNT"
+    },
+    "dltFee": {
+        "amount": "0.0000027",
+        "unit": "BTC"
+    },
+    "nativeData": {
+        "data": "25 AK47S 69420666",
+        "inputs": [
+            {
+                "hash": "8918574cebb678a12208c35df61b9885ae00459a0a95723fe10b29e1cf3559ae",
+                "index": 1,
+                "rawTransaction": "02000000000101fceb753a3d0d9b1fbc76ae9414ebcb1843950607035a85c6ab2e2e58ccaa9e5c0000000000feffffff02f7d6623f0100000017a914ca721542e6aaab8d450b72873c08d0e5a205ae9487ff4c1200000000001976a9148aa972573027f77a5ab2a1f4083c50ff7f256e8a88ac02473044022028099a741b34862a5587116ba0751461649fa86b328ac748f29dda1224613842022011ecd36055d77eefe041bc59b0d8c4419143e7983ac97ce7300fcb078f016e9c0121026fbaca20ca05c630e277a67ae13111397b3b4dcfa3b2aa0a0897d4cee19dbc6664a01e00"
+            }
+        ],
+        "outputs": [
+            {
+                "address": "2N2kLk84gUPXWTT9AaGwh8z4JKgwkJhNquK",
+                "value": 730
+            }
+        ],
+        "fee": "0.0000027"
+    }
+}

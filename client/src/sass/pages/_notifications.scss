@@ -1,0 +1,43 @@
+.vue-notification-wrapper {
+    position: relative;
+    min-width: 444px;
+    top: 20px;
+    left: calc(50% - 227px) !important;
+  div.notif-content {
+    background-color: $black;
+    opacity: 0.8;
+    border: none;
+    margin: 0;
+    padding: 17px 16px;
+    @include border-radius(4px);
+    display: flex;
+    align-items: center;
+    span {
+      font-size: $fontSizeBase;
+      color:$white;
+    }
+    span.icon-failed, span.icon-success {
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+  div.warning-content {
+    background-color: $white;
+    border: none;
+    margin: 0;
+    padding: 17px 16px;
+    @include border-radius(4px);
+    display: flex;
+    align-items: center;
+    span {
+      font-size: $fontSizeBase;
+      color:$black;
+    }
+    span.icon-info {
+      color:$black;
+      opacity: 0.6;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+}

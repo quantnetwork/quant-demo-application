@@ -1,0 +1,97 @@
+.api-wrapper {
+  background: $black;
+  opacity: 0.8;
+  width: calc(100% - 64px);
+  bottom: 24px;
+  min-height: 70px;
+  height: auto;
+  position: absolute;
+  align-items: center;
+  margin: 0 auto !important;
+  z-index: 1;
+  @include border-radius(4px);
+  left: 0;
+  right: 0;
+  .api-output-text {
+    &:after {
+      position: relative;
+      top: -12px;
+      margin-top: 4px;
+      border-color: $white transparent transparent;
+      border-style: solid;
+      border-width: 7px 7px 0;
+      content: "";
+      float: right;
+      right: 29px;
+      cursor: pointer;
+    }
+    h3 {
+      transform: translateY(50%);
+      color:$white;
+    }
+  }
+  &.api-open {
+    .api-output-text {
+      min-height: 70px;
+      border-bottom: 1px solid $lightgray;
+      margin: 0 20px;
+      &:after {
+        transform: rotate(180deg);
+        right: 9px;
+      }
+    }
+  }
+  @media screen and (max-height: 900px) {
+    max-height: 80vh;
+   }
+   @media screen and (min-height: 900px) {
+    max-height: 72vh;
+   }
+}
+
+.console-text {
+  padding-left: 20px;
+  color: $white;
+  // height: calc(62vh - 70px);
+  // height: 530px;
+  margin: 0 !important;
+  overflow: auto;
+  /* this will hide the scrollbar in mozilla based browsers */
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  /* this will hide the scrollbar in internet explorers */
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+  }
+  &.show {
+    padding: 20px;
+    // height: calc(62vh - 70px) !important;
+    // height: 530px;
+    transition-property: height;
+    transition-duration: 0.02s;
+    transition-delay: 0;
+    p, span {
+      font-family: 'Heebo',  sans-serif !important;
+    }
+    .success {
+      color: $green;
+    }
+    .neutral {
+      color: $white;
+    }
+    @media screen and (max-height: 900px) {
+      height: calc(80vh - 70px);
+     }
+     @media screen and (min-height: 900px) {
+      height: calc(72vh - 70px);
+     }
+  }
+  @media screen and (max-height: 900px) {
+    height: calc(80vh - 70px);
+   }
+   @media screen and (min-height: 900px) {
+    height: calc(72vh - 70px);
+   }
+}

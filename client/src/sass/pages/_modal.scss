@@ -1,0 +1,30 @@
+.modal-content {
+    padding: 15px 32px;
+}
+
+.modal-header {
+    padding: 0;
+    .close {
+        font-size: $fontSizeHeader1;
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+.modal-body {
+    padding: 45px 0 5px 0;
+    h5 {
+        font-size: $fontSizeBase;
+    }
+    .sub-id {
+        h5 {
+            font-size: $fontSizeHeader2;
+            font-weight: $fontweightbase;
+        }
+    }
+}
+
+.modal-footer {
+    border: none;
+}

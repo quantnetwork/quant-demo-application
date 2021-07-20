@@ -1,0 +1,297 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Overledger Demo Application Backend RESTful document API",
+    "version": "1.0.0",
+    "title": "Overledger Demo Application Backend REST API",
+    "contact": {
+      "name": "Support",
+      "url": "https://quant.network",
+      "email": "support@quant.network"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "paths": {
+    "/sign": {
+      "post": {
+        "description": "Sign a prepared transaction",
+        "summary": "/sign",
+        "tags": [
+          "Sign"
+        ],
+        "operationId": "SignPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in":"body",
+            "name":"body",
+            "description":"An overledger prepared transaction.",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/PreparedTransaction"
+            }
+          }
+        ],
+        "responses": {
+          "200":{
+            "description":"All Good",
+            "schema":{
+              "$ref":"#/definitions/SignedTransaction"
+            }
+          },
+          "400": {
+            "description": "Something went wrong on your side",
+            "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "headers": {}
+          },
+          "404": {
+            "description": "Something went wrong, can't find the result",
+            "headers": {}
+          },
+          "405": {
+            "description": "Method is not allowed",
+            "headers": {}
+          },
+          "422": {
+            "description": "Unprocessable entity",
+            "headers": {}
+          },
+          "500": {
+            "description": "Unable to process transaction request",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/subscription-update": {
+      "post": {
+        "description": "Receives a subscription update and passes it on to connected clients",
+        "summary": "/subscription-update",
+        "tags": [
+          "Subscription Update"
+        ],
+        "operationId": "SubscriptionUpdate",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in":"body",
+            "name":"body",
+            "description":"An overledger transaction update.",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/TransactionUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All good!",
+            "headers": {}
+          },
+          "400": {
+            "description": "Something went wrong on your side",
+            "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized access",
+            "headers": {}
+          },
+          "404": {
+            "description": "Something went wrong, can't find the result",
+            "headers": {}
+          },
+          "405": {
+            "description": "Method is not allowed",
+            "headers": {}
+          },
+          "422": {
+            "description": "Unprocessable entity",
+            "headers": {}
+          },
+          "500": {
+            "description": "Unable to process transaction request",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TransactionUpdate": {
+      "type": "object",
+      "properties": {
+        "subscriptionId": {
+          "type": "string"
+        },
+        "type": {
+          "type":"string"
+        },
+        "callbackUrl": {
+          "type":"string"
+        },
+        "subscriptionDetails": {
+          "$ref":"#/definitions/SubscriptionDetails"
+        },
+        "overledgerTransactionDetails": {
+          "$ref":"#/definitions/OverledgerTransactionDetails"
+        }
+      }
+    },
+    "SubscriptionDetails": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "$ref":"#/definitions/Status"
+        }
+      }
+    },
+    "OverledgerTransactionDetails": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "number"
+        },
+        "overledgerTransactionId": {
+          "type":"string"
+        },
+        "requestId": {
+          "type":"string"
+        },
+        "transactionId": {
+          "type":"string"
+        },
+        "status": {
+          "$ref":"#/definitions/Status"
+        }
+      }
+    },
+    "Status": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string"
+        },
+        "code": {
+          "type":"string"
+        },
+        "description": {
+          "type":"string"
+        },
+        "message": {
+          "type":"string"
+        }
+      }
+    },
+    "PreparedTransaction": {
+      "type": "object",
+      "properties": {
+        "requestId": {
+          "type": "string"
+        },
+        "gatewayFee": {
+          "$ref":"#/definitions/GatewayFee"
+        },
+        "dltFee": {
+          "$ref":"#/definitions/DltFee"
+        },
+        "nativeData": {
+          "$ref":"#/definitions/NativeData"
+        }
+      }
+    },
+    "SignedTransaction": {
+      "type": "object",
+      "properties": {
+        "requestId": {
+          "type": "string"
+        },
+        "signed": {
+          "type": "string"
+        }
+      }
+    },
+    "GatewayFee": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "DltFee": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "NativeData": {
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Input"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Output"
+          }
+        },
+        "fee": {
+          "type": "number"
+        }
+      }
+    },
+    "Input": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        }
+      }
+    },
+    "Output": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
+

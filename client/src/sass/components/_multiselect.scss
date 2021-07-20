@@ -1,0 +1,120 @@
+
+.multiselect {
+    min-width: 442px;
+    @include border-radius(4px);
+    .multiselect__tags {
+        height: 42px;
+        color: $gray;
+        @include border-radius(4px);
+        border: 1px solid $lightgray;
+        font-size: $fontSizeBase;
+        padding: 10px 40px 0 16px;
+        background: transparent;
+        min-width: 442px;
+        &[type=text]:hover{
+            box-shadow: 0px 0px 4px 1px $shadowcolor;
+            border: 1px solid $black;
+          }
+    }
+    &.multiselect--active {
+        box-shadow: 0px 0px 4px 1px $shadowcolor;
+        @include border-radius(4px);
+        border: 1px solid $black;
+        .multiselect__tags {
+            padding: 8px 40px 0 16px;
+        }
+    }
+    .multiselect__option.multiselect__option--highlight {
+        background: $orange;
+        color: $white;
+        &:after {
+            background: $orange;
+            content: "";
+        }
+        span {
+            &:before {
+                color:$white;
+            }
+        }
+    }
+    .multiselect__content-wrapper {
+        box-shadow: 0px 0px 4px 1px $shadowcolor;
+    }
+    &.multiselect--disabled {
+        background: $lightgray;
+        opacity: 1;
+        min-width: 442px;
+        .multiselect__single {
+            color:$black;
+            background: transparent;
+        }
+    }
+    .multiselect__option {
+        color: $gray;
+        display: flex;
+        span:first-child {
+            margin-right: 7px;
+        }
+    }
+}
+
+.multiselect--disabled .multiselect__current, .multiselect--disabled .multiselect__select {
+    background: transparent !important;
+}
+.multiselect__single {
+    display:flex !important;
+    align-items: center;
+    padding: 0 !important;
+    span:first-child {
+        margin-right: 7px;
+    }
+}
+.multiselect-group {
+    margin: 0 0 30px 0;
+    min-height: 83px;
+}
+
+.multiselect__option--selected {
+    font-weight: normal !important;
+    background: $white !important;
+    &.multiselect__option--highlight {
+        background: $white !important;
+        color:#B6B6B6 !important;
+        &:after {
+            background: $white;
+            content: "";
+        }
+        span.icon-bitcoin {
+            &:before {
+                color:$orange !important;
+            }
+        }
+        span.icon-xrp {
+            &:before {
+                color:$blue !important;
+            }
+        }
+        span.icon-eth {
+            &:before {
+                color:$purple !important;
+            }
+        }
+    }
+}
+.multiselect {
+    &.multiselect--active {
+        .multiselect__select {
+            &:before {
+                top: 20px !important;
+            }
+        }
+    }
+    .multiselect__select {
+        &:before {
+            top:25px !important;
+        }
+    }
+    
+}
+
+
