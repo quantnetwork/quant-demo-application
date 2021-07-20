@@ -1,0 +1,61 @@
+.topbar {
+    background: $black;
+    color: $white;
+    padding: 2px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    ul.navbar-nav {
+      li {
+        a {
+          font:$fontSizeBase $fontweightbase $fontFamily;
+          border: 1px solid $black;
+          span {
+            cursor: pointer;
+          }
+          &:hover {
+            background: $lightblack;
+            border: 1px solid $orange;
+            @include border-radius(2px);
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-brand img {
+    height: 50px;
+    &.start-page-logo {
+      height: 100%;
+    }
+  }
+  .navbar-expand .navbar-nav .nav-link {
+    padding: 10px 24px;
+    position: relative;
+    display: block;
+    &.activeNavClass {
+      background: $lightblack;
+      border: 1px solid $orange;
+      @include border-radius(2px);
+      font-weight: $fontweightbase;
+    }
+  }
+
+  .topbar-badge {
+    right: 9px;
+    position: absolute;
+    top: 9px;
+    border-radius: 50%;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    padding: 0!important;
+    display: block;
+    font-size: $fontSizeMedium;
+    color: $white !important;
+    background-color: $orange;
+}
+
+.w-169 {
+  width: 169px;
+}

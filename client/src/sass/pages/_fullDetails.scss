@@ -1,0 +1,64 @@
+.quant-card {
+  border: 1px solid $lightgray;
+  @include border-radius(0);
+  .card-header {
+    background:$lightgray;
+    @include border-radius(0);
+    border: none;
+    padding: 12px 25px !important;
+    button {
+      background-color: transparent;
+      border: none;
+      color:$black;
+      text-align: left;
+      font-weight: $fontweightbase;
+      padding: 0;
+      &:focus {
+        box-shadow: none;
+        @include border-radius(0);
+      }
+      &:not(:disabled):not(.disabled):active:focus,
+      &:not(:disabled):not(.disabled).active:focus {
+        box-shadow: none;
+      }
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled).active {
+        background-color: transparent;
+        border: none;
+        color: $black;
+      }
+      &:after {
+        position: relative;
+        top: 8px;
+        margin-top: 4px;
+        border-color: $black transparent transparent;
+        border-style: solid;
+        border-width: 7px 7px 0;
+        content: "";
+        float: right;
+        right: 0;
+        cursor: pointer;
+        opacity: 0.6;
+      }
+      &.not-collapsed {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  .card-body {
+      padding: 20px 25px;
+      .card {
+        @include border-radius(0);
+        border: none;
+      }
+      .row {
+        &:last-child {
+        margin-bottom: 0 !important;
+        }
+      }
+  }
+}
+
+

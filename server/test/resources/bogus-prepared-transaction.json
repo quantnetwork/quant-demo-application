@@ -1,0 +1,31 @@
+{
+    "requestId": "b95ee19e-5391-4593-8177-00171b5840e4",
+    "gatewayFee": {
+        "amount": "0",
+        "unit": "QNT"
+    },
+    "dltFee": {
+        "amount": "0.0000031",
+        "unit": "WTF"
+    },
+    "nativeData": {
+        "data": "25 AK47S 69420666",
+        "inputs": [
+            {
+                "transactionHash": "c76057a7ce2b1f106df5daff6781780e3dfaffba4891ab8338b8e804e137a6d0",
+                "vout": "1"
+            }
+        ],
+        "outputs": [
+            {
+                "address": "mtHsSjGeVhSQVqcM3fv5A79qoSJ5TgEjtj",
+                "amount": 1000
+            },
+            {
+                "address": "msvRtgZy4R3TUfi8jwkn4fDDxdH9DqFmfZ",
+                "amount": 7404
+            }
+        ],
+        "fee": "0.0000031"
+    }
+}

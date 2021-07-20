@@ -1,0 +1,22 @@
+name: Quant-CI Develop
+
+# Run this workflow every time a commit is pushed to main or a pull request is opened against main
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches: 
+      - develop
+
+jobs:
+    build:
+        name: Call Azure Pipeline
+        runs-on: ubuntu-latest
+        steps:
+        - name: Azure Pipelines Action
+          uses: Azure/pipelines@v1
+          with:
+            azure-devops-project-url: http://83.139.19.244/VOLO/Quant
+            azure-pipeline-name: 'Quant-CI-Dev'
+            azure-devops-token: ${{'vu6x6rjfotqpp7jvxoep77rdob4ddlep3rs2n4w6naobnpzzlsda'}}

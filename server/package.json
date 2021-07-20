@@ -1,0 +1,70 @@
+{
+  "name": "overledger-demo-server",
+  "version": "1.0.0",
+  "description": "Server for the demo application",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "bugs": {
+    "url": "https://app.clubhouse.io/quantnetwork",
+    "email": "support@quant.network"
+  },
+  "contributors": [
+    {
+      "name": "Joao Alves",
+      "email": "joao.alves@quant.network",
+      "url": "https://github.com/jvaralves"
+    },
+    {
+      "name": "Alexandru Chiriac",
+      "email": "alexandru.chiriac@quant.network",
+      "url": "https://github.com/alexchiriac"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quantnetwork/overledger-demo-application-backend"
+  },
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=local nodemon --config nodemon.json --exec babel-node src/index.js",
+    "start:dummyclient": "NODE_ENV=local nodemon --config nodemon.json --exec babel-node src/websocketdummyclient/indexWebSocketClient.js",
+    "test": "jest --config test/jest.config.js --detectOpenHandles",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "async-retry": "^1.3.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.16.3",
+    "http-status": "^1.2.0",
+    "joi": "^17.4.0",
+    "lodash": "^4.17.21",
+    "log4js": "^3.0.6",
+    "node-fetch": "^2.6.1",
+    "@quantnetwork/overledger-bundle": "^2.0.0",
+    "@quantnetwork/overledger-types": "^2.0.0",
+    "secure-env": "^1.2.0",
+    "socket.io": "^4.1.2",
+    "swagger-ui-express": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-transform-runtime": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-stage-0": "^7.0.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "express-actuator": "^1.7.0",
+    "jest": "^26.1.0",
+    "jest-junit-reporter": "^1.1.0",
+    "nodemon": "^2.0.4",
+    "socket.io-client": "^4.1.2",
+    "superagent": "^5.1.0",
+    "supertest": "^3.4.2"
+  }
+}

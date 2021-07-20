@@ -1,0 +1,80 @@
+@mixin hyphens {
+  -webkit-hyphens: inherit;
+  -moz-hyphens: inherit;
+  -ms-hyphens: inherit;
+  hyphens: inherit;
+}
+/* ========================= Border radius ========================= */
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+  }
+  /* =========================flex======================== */
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* ========================= justify-content========================= */
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    //} @else if $value == space-around {
+    //  -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+
+  /* ========================= BUTTON ========================= */
+@mixin btn($text-transform: capitalize, $font-weight: 500,$border-radius: 4px, $btn-text-color: $white, $padding1: 18px, $padding2: 16px, $background: transparent,$fontSizeBase:$fontSizeBase ) {
+  @include border-radius($border-radius);
+  text-align: center;
+  color: $white;
+  font-family: $fontFamily;
+  text-transform: $text-transform;
+  padding: $padding1 $padding2;
+  background: $background;
+  display: inline-block;
+  font-size: $fontSizeBase;
+  font-weight: $font-weight;
+  border: none;
+}
+
+/* ========================placeholder========================= */
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+

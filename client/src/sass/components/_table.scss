@@ -1,0 +1,93 @@
+.table.sub-table {
+    @include border-radius(1px);
+    border: 1px solid $lightgray;
+    tr {
+        line-height: 30px;
+        // border-bottom: 2px solid $white;
+        &:nth-child(even) {
+            background-color: $lightgray;
+        }
+        td {
+            padding: 5px 16px;
+            line-height: 32px;
+            color:$black;
+            border-bottom: 1px solid $lightgray;
+            button {
+                padding: 0;
+                margin-left: 5px;
+                position: relative;
+                top: 5px;
+                span {
+                    font-size: 20px;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+                &:last-child {
+                    color: transparent;
+                    &:after {
+                        content: "";
+                        position: relative;
+                        margin-top: 4px;
+                        border-color: $black transparent transparent;
+                        border-style: solid;
+                        border-width: 7px 7px 0;
+                        float: right;
+                        right: 15px;
+                        cursor: pointer;
+                        opacity: 0.6;
+                    }
+                }
+            }
+            &:last-child {
+                text-align: right;
+            }
+        }
+        &.b-table-has-details {
+            td button:last-child {
+                &:after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        &.b-table-details {
+            td:last-child {
+                text-align: left;
+                padding: 0 0.75rem;
+            }
+        }
+        &.orange-tr {
+            background-color: $lightorange;
+        }
+        &.b-table-empty-row {
+            border-bottom: 1px solid $lightgray;
+        }
+    }
+    .thead-light th {
+        color: $black;
+        background-color: $lightgray;
+        border: none;
+        font-size: $fontSizeBase;
+        font-weight: $fontweightbase;
+        padding: 9px 16px;
+    }
+    .container-width {
+        padding: 0!important;
+        .row.mb-4 {
+                margin-bottom: 10px !important;
+        }
+      }
+}
+.b-table-details {
+    background-color: $white !important;
+}
+
+.details-wrapper {
+    padding: 15px 0;
+    // border-top: 1px solid $lightgray !important;
+    // border-bottom: 1px solid $lightgray;
+    position: relative;
+    .table-details {
+        font-size: $fontSizeMedium;
+    }
+}

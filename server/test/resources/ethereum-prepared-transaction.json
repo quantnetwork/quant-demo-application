@@ -1,0 +1,20 @@
+{
+    "requestId": "fe5b118e-45eb-44d0-834e-c7232916c11e",
+    "gatewayFee": {
+        "amount": "0",
+        "unit": "QNT"
+    },
+    "dltFee": {
+        "amount": "0.0001277",
+        "unit": "ETH"
+    },
+    "nativeData": {
+        "nonce": 1175,
+        "chainId": 3,
+        "to": "0xB3ea4D180f31B4000F2fbCC58a085eF2ffD5a763",
+        "gas": "25540",
+        "gasPrice": "5000000000",
+        "value": "1000000000000",
+        "data": "000000323520414b343753203639343230363636"
+    }
+}

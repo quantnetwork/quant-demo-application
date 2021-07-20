@@ -1,0 +1,28 @@
+{
+  "subscriptionId": "fe5b118e-45eb-44d0-834e-c7232916c11e",
+  "type": "btc",
+  "callbackUrl": "http://localhost:3000/subscription-update",
+  "subscriptionDetails": {
+    "ids": [
+      "8f24e577-88dc-4aaa-8c36-12ee7afc1c2d"
+    ],
+    "status": {
+      "code": "ACTIVE",
+      "description": "SUB1000",
+      "message": "Subscription Successful.",
+      "timestamp": "2021-06-08"
+    }
+  },
+  "overledgerTransactionUpdateDetails": {
+    "timestamp": 1623320385.861529,
+    "overledgerTransactionId": "fe5b118e-45eb-44d0-834e-c7232916c11e",
+    "requestId": "fe5b118e-45eb-44d0-834e-c7232916c11e",
+    "transactionId": "fe5b118e-45eb-44d0-834e-c7232916c11e",
+    "status": {
+      "code": "Created",
+      "description": "created",
+      "message": "created",
+      "timestamp": "2021-06-08"
+    }
+  }
+}
