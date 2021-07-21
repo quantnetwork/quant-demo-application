@@ -42,3 +42,22 @@ This can be done by following the next steps:
 
 
 3. Copy the token that has been generated and use it in the Demo App when prompted.
+
+## Subscribing to transaction updates - Port Forwarding
+
+To subscribe to transaction updates from Overledger, which is one of the features of the demo app, you will need to expose the server port (default 8081)
+to the outside world so that Overledger might reach it.
+
+By default, some ports are blocked on modern-day routers. 
+This is a great security feature because malicious requests are prevented from reaching the core processes that may be running on your computer.
+However, at the same time, this can also result in problems for applications that need information sent back to them from the Internet – the router will block them.
+The Demo application requires port 8081 of the server to be opened to receive updates from Overledger.
+To open a port, you need to open a configuration page on the router:
+
+Open your web browser and type the router’s address in the address bar.
+To find your router’s address, check the router information or your computer’s network settings.
+Type in your username and password if required.
+The exact process on port forwarding can be different depending on the make and model of router.
+Refer to the router’s documentation on how to set this up.
+Once you have successfully set up port forwarding on your router,
+the next thing to consider is also checking the firewall settings of your computer, to make sure the port connection is allowed.
