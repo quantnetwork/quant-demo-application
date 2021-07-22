@@ -2,6 +2,8 @@
 
 This is the official Overledger Demo Application which showcases Overledger’s API v2.0.
 
+This README file and the ones on the client and server folders contain instructions on how to install, configure and run the Demo application. In this folder you can also find an mp4 instructional video.
+
 ## Requirements
 
 - Have an Overledger Developer Portal account (https://developer.quant.network/login).
