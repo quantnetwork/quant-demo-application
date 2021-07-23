@@ -48,7 +48,7 @@ This can be done by following the next steps:
 ## Subscribing to transaction updates - Port Forwarding
 
 To subscribe to transaction updates from Overledger, which is one of the features of the demo app, you will need to expose the server port (default 8081)
-to the outside world so that Overledger might reach it.
+to the outside world so that Overledger might reach it. Then when asked for the callback url you should provide a url with the following format <YOUR_IP>:8081/subscription-update.
 
 By default, some ports are blocked on modern-day routers. 
 This is a great security feature because malicious requests are prevented from reaching the core processes that may be running on your computer.
