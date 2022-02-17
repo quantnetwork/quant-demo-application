@@ -18,7 +18,7 @@ class AuthService {
 
     // We have a refresh token, so let's try to fetch an access token using that.
     return this.overledger.refreshAccessToken(process.env.CLIENT_ID, process.env.CLIENT_SECRET, this.refreshToken)
-      .then(response => response.data.access_token)
+      .then(response => response.accessToken)
       .catch((error) => {
         // Lets assume the refresh token expired, so make a call to get a new set of tokens.
         log.error(error);
