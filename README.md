@@ -1,3 +1,11 @@
+> ❗**IMPORTANT**❗
+>
+> This repository has been archived and will no longer be maintained.
+>
+> For documentation regarding Overledger, refer to [https://docs.overledger.dev/](https://docs.overledger.dev/).
+>
+> ❗**IMPORTANT**❗
+
 # Overledger Demo Application
 
 This is the official Overledger Demo Application which showcases Overledger’s API v2.0.
